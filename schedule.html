@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Master schedule · The Music Army</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="side">
+      <div class="logo">THE MUSIC ARMY</div>
+      <nav>
+        <a href="dashboard.html" class="">Dashboard</a>
+        <a href="bookings.html" class="">Bookings<em class="bdg">3</em></a>
+        <a href="schedule.html" class="on">Schedule</a>
+        <a href="teachers.html" class="">Teachers</a>
+        <a href="students.html" class="">Students</a>
+        <a href="branches.html" class="">Branches</a>
+        <a href="content.html" class="">Content</a>
+      </nav>
+      <div class="me">
+        <b>Oshien Maboloc</b><br />Roving admin<br /><a href="login.html"
+          >Logout</a
+        >
+      </div>
+    </aside>
+    <main>
+      <header>
+        <div>
+          <small>Oshien Maboloc · Roving admin</small>
+          <h1>Master schedule</h1>
+          <p>
+            Use the filters to focus on a branch, teacher or instrument. Click a
+            session to reschedule it.
+          </p>
+        </div>
+        <div class="bar" style="margin: 0">
+          <select>
+            <option>All branches</option>
+            <option>Acacia Town Center</option>
+            <option>BGC</option>
+            <option>Makati</option>
+            <option>Poblacion</option></select
+          ><button>Public booking form</button>
+        </div>
+      </header>
+      <div id="view">
+        <div class="bar">
+          <input
+            placeholder="Search teacher or student"
+            style="flex: 1"
+          /><select>
+            <option>All instruments</option>
+            <option>Guitar</option>
+            <option>Piano</option>
+            <option>Drums</option>
+            <option>Bass</option>
+            <option>Vocals</option></select
+          ><select>
+            <option>All days</option>
+            <option>Mon</option>
+            <option>Tue</option>
+            <option>Wed</option>
+            <option>Thu</option>
+            <option>Fri</option>
+            <option>Sat</option>
+          </select>
+        </div>
+        <div class="chips">
+          <small>INSTRUMENTS</small><span class="chip g">Guitar</span
+          ><span class="chip p">Piano</span><span class="chip d">Drums</span
+          ><span class="chip b">Bass</span><span class="chip v">Vocals</span>
+        </div>
+        <div class="card">
+          <h3>All sessions per branch</h3>
+          <small>Weekly grid · 12 lessons · 36 open slots</small>
+          <div class="sched" style="margin-top: 12px">
+            <b>Time</b><b>Mon</b><b>Tue</b><b>Wed</b><b>Thu</b><b>Fri</b
+            ><b>Sat</b><b>9:00</b
+            ><button class="les g" data-open="m-sres">
+              <b>Guitar</b> 9:00<br />Alex Cruz<br />Student · Ana
+            </button>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <button class="les g" data-open="m-sres">
+              <b>Guitar</b> 9:00<br />Kit Morales<br />Student · Leo
+            </button>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <b>10:00</b>
+            <div class="slot">+ Open slot</div>
+            <button class="les b" data-open="m-sres">
+              <b>Bass</b> 10:00<br />Mina Santos<br />Student · Carl
+            </button>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <button class="les g" data-open="m-sres">
+              <b>Guitar</b> 10:00<br />Alex Cruz<br />Student · Mia</button
+            ><b>11:00</b>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <button class="les d" data-open="m-sres">
+              <b>Drums</b> 11:00<br />Diego Tan<br />Student · Miguel
+            </button>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <b>13:00</b>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <button class="les p" data-open="m-sres">
+              <b>Piano</b> 13:00<br />Paolo Reyes<br />Student · Carl
+            </button>
+            <div class="slot">+ Open slot</div>
+            <b>14:00</b
+            ><button class="les p" data-open="m-sres">
+              <b>Piano</b> 14:00<br />Paolo Reyes<br />Student · Ella
+            </button>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <button class="les v" data-open="m-sres">
+              <b>Vocals</b> 14:00<br />Lara Uy<br />Student · Ana
+            </button>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <b>15:00</b>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <button class="les p" data-open="m-sres">
+              <b>Piano</b> 15:00<br />Nina Villanueva<br />Student · Sofia
+            </button>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <button class="les d" data-open="m-sres">
+              <b>Drums</b> 15:00<br />Diego Tan<br />Student · Leo</button
+            ><b>16:00</b>
+            <div class="slot">+ Open slot</div>
+            <button class="les v" data-open="m-sres">
+              <b>Vocals</b> 16:00<br />Lara Uy<br />Student · Mia
+            </button>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <b>17:00</b>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <div class="slot">+ Open slot</div>
+            <button class="les v" data-open="m-sres">
+              <b>Vocals</b> 17:00<br />Rafi Gomez<br />Student · Ella
+            </button>
+            <div class="slot">+ Open slot</div>
+          </div>
+          <p>
+            <small
+              >Color identifies the instrument. Open slot = no lesson
+              scheduled.</small
+            >
+          </p>
+        </div>
+        <dialog id="m-sres">
+          <small>Scheduled lesson</small>
+          <h2>Reschedule lesson</h2>
+          <small
+            >Teacher and student stay the same. Pick a new day and time.</small
+          >
+          <div class="bar" style="margin: 0">
+            <label style="flex: 1"
+              >New date<input type="date" value="2026-11-30" /></label
+            ><label style="flex: 1"
+              >New time<select>
+                <option>10:00 AM</option>
+                <option>2:00 PM</option>
+              </select></label
+            >
+          </div>
+          <div class="acts">
+            <button data-close>Cancel</button
+            ><button class="pri" data-close>Save new time</button>
+          </div>
+        </dialog>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

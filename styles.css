@@ -1,0 +1,451 @@
+/* ==========================================================
+   THE MUSIC ARMY · Admin
+   1. Tokens   2. Base   3. Layout   4. Forms & buttons
+   5. Cards & stats   6. Tables & pills   7. Popups
+   8. Page: Schedule   9. Page: Content   10. Page: Login
+   11. Responsive
+   ========================================================== */
+
+/* ---------- 1. Tokens ---------- */
+:root {
+  --ink: #1d2a24;
+  --muted: #6b756f;
+  --bg: #f4f4f2;
+  --white: #fff;
+  --line: #e4e4e0;
+  --line-soft: #ececE8;
+  --border: #d9d9d4;
+
+  --green: #213a2f;
+  --green-hover: #3a5448;
+  --green-tint: #dde8e0;
+  --green-text: #1d4a32;
+
+  --warn-bg: #fcf0c8;
+  --warn-border: #ecd68a;
+  --warn-pill: #f6e7b8;
+  --warn-text: #7a5a00;
+  --gold: #e6b93a;
+  --focus: #c99a1d;
+
+  --bad-bg: #f4d6d6;
+  --bad-text: #a32a2a;
+
+  --radius: 6px;
+  --radius-sm: 5px;
+}
+
+/* ---------- 2. Base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  font: 14px/1.4 Inter, system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+a { color: inherit; text-decoration: none; }
+
+:is(button, input, select, a):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+/* ---------- 3. Layout ---------- */
+/* Sidebar */
+.side {
+  position: sticky;
+  top: 0;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  height: 100vh;
+  padding: 24px 16px;
+  background: var(--green);
+  color: #dfe8e2;
+}
+
+.logo {
+  margin: 0 8px 30px;
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+
+.side nav a {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  padding: 9px 10px;
+  border-radius: var(--radius);
+  color: #cdd9d2;
+}
+.side nav a.on  { background: var(--green-hover); color: var(--white); }
+.side nav a.off { opacity: .45; cursor: not-allowed; }
+
+.me {
+  margin-top: auto;
+  padding: 12px 8px;
+  border-top: 1px solid var(--green-hover);
+  font-size: 12px;
+  color: #aebdb4;
+}
+.me b { font-size: 13px; color: var(--white); }
+
+.bdg {                          /* sidebar count badge */
+  padding: 0 7px;
+  border-radius: 9px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 11px;
+  font-style: normal;
+}
+
+/* Main area */
+main { flex: 1; min-width: 0; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 28px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+header small { font-size: 12px; color: var(--muted); }
+header h1    { margin: 2px 0; font-size: 22px; }
+header p     { margin: 0; color: var(--muted); }
+
+#view { padding: 22px 28px 40px; }
+
+/* Layout helpers */
+.bar {                          /* filter / toolbar row */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.grid { display: grid; gap: 16px; }
+.g2   { grid-template-columns: 1fr 1fr; }
+.g4   { grid-template-columns: repeat(4, 1fr); }
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border: 1px solid var(--warn-border);
+  border-radius: var(--radius);
+  background: var(--warn-bg);
+}
+
+.note {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--warn-bg);
+}
+
+/* ---------- 4. Forms & buttons ---------- */
+input, select, button { font: inherit; }
+
+input, select {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: inherit;
+}
+
+button {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  cursor: pointer;
+}
+button.pri { background: var(--green); border-color: var(--green); color: var(--white); }
+button.dng { color: var(--bad-text); }
+
+.btn {                          /* link styled as a primary button */
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--green);
+  color: var(--white);
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+  margin: 10px 0 6px;
+}
+.form label {
+  display: grid;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.up {                           /* file-picker button */
+  display: inline-block;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  cursor: pointer;
+}
+.up input { display: none; }
+
+/* ---------- 5. Cards & stats ---------- */
+.card {
+  margin-bottom: 16px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.card h3 { margin: 0 0 2px; font-size: 16px; }
+
+/* KPI tiles */
+.kpi {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.kpi b    { display: block; margin: 6px 0 2px; font-size: 34px; }
+.kpi span { font-size: 12px; color: var(--muted); }
+.kpi.dark         { background: var(--green); color: var(--white); }
+.kpi.dark span    { color: #bfd0c6; }
+
+/* Horizontal bar rows */
+.row {
+  display: grid;
+  grid-template-columns: 130px 1fr 80px;
+  gap: 10px;
+  align-items: center;
+  margin: 9px 0;
+  font-size: 13px;
+}
+.trk { height: 8px; overflow: hidden; border-radius: 4px; background: var(--line-soft); }
+.trk i { display: block; height: 100%; background: var(--green); }
+
+/* Monthly column chart */
+.mon {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  height: 130px;
+  overflow-x: auto;
+}
+.mon div { flex: 1; min-width: 34px; text-align: center; font-size: 11px; color: var(--muted); }
+.mon i   { display: block; margin-bottom: 4px; border-radius: 3px 3px 0 0; background: var(--green); }
+
+/* Program link tiles */
+.prog {
+  display: block;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.prog:hover { border-color: var(--green); }
+.prog b     { display: block; font-size: 20px; }
+
+/* ---------- 6. Tables & pills ---------- */
+table { width: 100%; border-collapse: collapse; }
+th {
+  padding: 8px 6px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+td { padding: 10px 6px; border-top: 1px solid var(--line-soft); }
+
+.pill {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  background: var(--green-tint);
+  color: var(--green-text);
+  font-size: 12px;
+}
+.pill.warn { background: var(--warn-pill); color: var(--warn-text); }
+.pill.bad  { background: var(--bad-bg);    color: var(--bad-text); }
+
+/* ---------- 7. Popups (dialogs, side panel) ---------- */
+dialog {
+  width: min(460px, 92vw);
+  padding: 24px;
+  border: 0;
+  border-radius: var(--radius);
+}
+dialog::backdrop { background: #0006; }
+
+dialog h2, dialog h3 { margin: 2px 0 6px; }
+dialog small         { font-size: 12px; color: var(--muted); }
+dialog label {
+  display: grid;
+  gap: 3px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+dialog input, dialog select { width: 100%; }
+
+.acts {                         /* Cancel / Confirm row */
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* Right-hand side panel (a dialog with class "drawer") */
+dialog.drawer {
+  inset: 0 0 0 auto;
+  width: min(480px, 100%);
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  overflow: auto;
+  border-radius: 0;
+  background: var(--white);
+  box-shadow: -8px 0 30px #0003;
+}
+
+/* Detail list inside popups */
+.dl {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 6px;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+/* Session rows (Students panel) */
+.ses {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid var(--line-soft);
+}
+.ses span { flex: 1; }
+.ses.done { color: var(--muted); }
+
+/* ---------- 8. Page: Schedule ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+.chip  { padding: 3px 12px; border-radius: 14px; font-size: 12px; }
+
+/* Instrument colors (used by chips and lesson blocks) */
+.g { background: #dff0e6; color: #1d6b3f; }   /* Guitar */
+.p { background: #e9e3f7; color: #5b3fa0; }   /* Piano  */
+.d { background: #fde8d9; color: #a5501b; }   /* Drums  */
+.b { background: #dce8fa; color: #2f5aa8; }   /* Bass   */
+.v { background: #fadde6; color: #a52a58; }   /* Vocals */
+
+.sched {
+  display: grid;
+  grid-template-columns: 50px repeat(6, minmax(110px, 1fr));
+  gap: 8px;
+  overflow-x: auto;
+}
+.sched > b { text-align: center; font-weight: 500; color: var(--muted); }
+
+.slot {                         /* empty time slot */
+  display: grid;
+  place-items: center;
+  min-height: 60px;
+  border: 1px dashed #d4d4ce;
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-size: 12px;
+  color: #8a938d;
+}
+button.les {                    /* scheduled lesson */
+  min-height: 60px;
+  padding: 8px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* ---------- 9. Page: Content ---------- */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+}
+.ph {
+  overflow: hidden;
+  padding-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.ph > div:first-child {
+  display: grid;
+  place-items: center;
+  height: 70px;
+  margin-bottom: 8px;
+  background: #ecece8;
+  font-size: 11px;
+  color: var(--muted);
+}
+.ph > *:not(:first-child) { margin: 4px 12px; }
+
+.gal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+.gal div {
+  display: grid;
+  place-items: center;
+  height: 84px;
+  border-radius: var(--radius-sm);
+  background: var(--green-tint);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ---------- 10. Page: Login ---------- */
+.login { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+
+.login .l {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 72px;
+  background: #354f43;
+  color: var(--white);
+}
+.login .l h1 { max-width: 480px; font-size: 32px; }
+
+.login .r    { display: grid; place-items: center; }
+.login .card { width: min(440px, 90%); padding: 32px; }
+.login input { width: 100%; margin: 4px 0 14px; }
+
+/* ---------- 11. Responsive ---------- */
+@media (max-width: 1000px) {
+  .g2, .g4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px) {
+  .login { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .g2, .g4 { grid-template-columns: 1fr; }
+  .side    { display: none; }
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Branches · The Music Army</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="side">
+      <div class="logo">THE MUSIC ARMY</div>
+      <nav>
+        <a href="dashboard.html" class="">Dashboard</a>
+        <a href="bookings.html" class="">Bookings<em class="bdg">3</em></a>
+        <a href="schedule.html" class="">Schedule</a>
+        <a href="teachers.html" class="">Teachers</a>
+        <a href="students.html" class="">Students</a>
+        <a href="branches.html" class="on">Branches</a>
+        <a href="content.html" class="">Content</a>
+      </nav>
+      <div class="me">
+        <b>Oshien Maboloc</b><br />Roving admin<br /><a href="login.html"
+          >Logout</a
+        >
+      </div>
+    </aside>
+    <main>
+      <header>
+        <div>
+          <small>Oshien Maboloc · Roving admin</small>
+          <h1>Branches</h1>
+          <p>Click Edit to change a branch's address, hours and contact.</p>
+        </div>
+        <div class="bar" style="margin: 0">
+          <select>
+            <option>All branches</option>
+            <option>Acacia Town Center</option>
+            <option>BGC</option>
+            <option>Makati</option>
+            <option>Poblacion</option></select
+          ><button>Public booking form</button>
+        </div>
+      </header>
+      <div id="view">
+        <div class="bar">
+          <input placeholder="Search branch" /><select>
+            <option>All statuses</option>
+            <option>open</option>
+            <option>closed</option>
+          </select>
+        </div>
+        <div class="card">
+          <table>
+            <tr>
+              <th>Branch</th>
+              <th>Address</th>
+              <th>Hours</th>
+              <th>Contact</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>Acacia Town Center</td>
+              <td>Acacia Town Center, Taguig</td>
+              <td>Mon–Sat · 9AM–8PM</td>
+              <td>+63 (02) 8812-3456</td>
+              <td><span class="pill">open</span></td>
+              <td><button data-open="m-br">Edit</button></td>
+            </tr>
+            <tr>
+              <td>BGC</td>
+              <td>BGC Studio, Taguig</td>
+              <td>Mon–Sat · 9AM–8PM</td>
+              <td>+63 (02) 8812-3456</td>
+              <td><span class="pill">open</span></td>
+              <td><button data-open="m-br">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Makati</td>
+              <td>123 Main St, Makati</td>
+              <td>Mon–Sat · 10AM–7PM</td>
+              <td>+63 (02) 8890-2211</td>
+              <td><span class="pill">open</span></td>
+              <td><button data-open="m-br">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Poblacion</td>
+              <td>Poblacion, Makati</td>
+              <td>Tue–Sun · 12PM–8PM</td>
+              <td>+63 (02) 8890-2212</td>
+              <td><span class="pill bad">closed</span></td>
+              <td><button data-open="m-br">Edit</button></td>
+            </tr>
+          </table>
+        </div>
+        <dialog id="m-br">
+          <small>Branch</small>
+          <h2>Edit branch</h2>
+          <label>Address<input value="Acacia Town Center, Taguig" /></label
+          ><label>Hours<input value="Mon–Sat · 9AM–8PM" /></label
+          ><label>Contact<input value="+63 (02) 8812-3456" /></label
+          ><label
+            >Status<select>
+              <option>open</option>
+              <option>closed</option>
+            </select></label
+          >
+          <div class="acts">
+            <button data-close>Cancel</button
+            ><button class="pri" data-close>Save changes</button>
+          </div>
+        </dialog>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

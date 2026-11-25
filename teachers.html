@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Teachers · The Music Army</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="side">
+      <div class="logo">THE MUSIC ARMY</div>
+      <nav>
+        <a href="dashboard.html" class="">Dashboard</a>
+        <a href="bookings.html" class="">Bookings<em class="bdg">3</em></a>
+        <a href="schedule.html" class="">Schedule</a>
+        <a href="teachers.html" class="on">Teachers</a>
+        <a href="students.html" class="">Students</a>
+        <a href="branches.html" class="">Branches</a>
+        <a href="content.html" class="">Content</a>
+      </nav>
+      <div class="me">
+        <b>Oshien Maboloc</b><br />Roving admin<br /><a href="login.html"
+          >Logout</a
+        >
+      </div>
+    </aside>
+    <main>
+      <header>
+        <div>
+          <small>Oshien Maboloc · Roving admin</small>
+          <h1>Teachers</h1>
+          <p>
+            Add a teacher with the form, or click Edit on a row to change one.
+          </p>
+        </div>
+        <div class="bar" style="margin: 0">
+          <select>
+            <option>All branches</option>
+            <option>Acacia Town Center</option>
+            <option>BGC</option>
+            <option>Makati</option>
+            <option>Poblacion</option></select
+          ><button>Public booking form</button>
+        </div>
+      </header>
+      <div id="view">
+        <div class="bar">
+          <input placeholder="Search teacher" /><select>
+            <option>All instruments</option>
+            <option>Guitar</option>
+            <option>Piano</option>
+            <option>Drums</option>
+            <option>Bass</option>
+            <option>Vocals</option></select
+          ><select>
+            <option>All statuses</option>
+            <option>active</option>
+            <option>inactive</option>
+          </select>
+        </div>
+        <div class="card">
+          <h3>Assigned branch is required</h3>
+          <div class="form">
+            <label>Name<input /></label
+            ><label
+              >Assigned branch<select>
+                <option>Select branch</option>
+                <option>Acacia Town Center</option>
+                <option>BGC</option>
+                <option>Makati</option>
+                <option>Poblacion</option>
+              </select></label
+            ><label
+              >Instrument<select>
+                <option>Guitar</option>
+                <option>Piano</option>
+                <option>Drums</option>
+                <option>Bass</option>
+                <option>Vocals</option>
+              </select></label
+            ><label>Availability<input value="Mon–Sat · 9AM–6PM" /></label
+            ><label
+              >Status<select>
+                <option>Active</option>
+                <option>Inactive</option>
+              </select></label
+            ><button class="pri">Add teacher</button>
+          </div>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Assigned branch</th>
+              <th>Instrument</th>
+              <th>Availability</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>Alex Cruz</td>
+              <td>Acacia Town Center</td>
+              <td>Guitar</td>
+              <td>Mon–Sat · 9AM–6PM</td>
+              <td><span class="pill">active</span></td>
+              <td><button data-open="m-tedit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Mina Santos</td>
+              <td>BGC</td>
+              <td>Bass</td>
+              <td>Tue–Sat · 10AM–7PM</td>
+              <td><span class="pill">active</span></td>
+              <td><button data-open="m-tedit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Paolo Reyes</td>
+              <td>Poblacion</td>
+              <td>Piano</td>
+              <td>Mon–Fri · 1PM–8PM</td>
+              <td><span class="pill">active</span></td>
+              <td><button data-open="m-tedit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Diego Tan</td>
+              <td>Acacia Town Center</td>
+              <td>Drums</td>
+              <td>Wed–Sun · 11AM–7PM</td>
+              <td><span class="pill">active</span></td>
+              <td><button data-open="m-tedit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Lara Uy</td>
+              <td>BGC</td>
+              <td>Vocals</td>
+              <td>Mon–Thu · 2PM–8PM</td>
+              <td><span class="pill">active</span></td>
+              <td><button data-open="m-tedit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Kit Morales</td>
+              <td>Makati</td>
+              <td>Guitar</td>
+              <td>Tue–Sat · 9AM–5PM</td>
+              <td><span class="pill">active</span></td>
+              <td><button data-open="m-tedit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Nina Villanueva</td>
+              <td>BGC</td>
+              <td>Piano</td>
+              <td>Mon–Sat · 10AM–6PM</td>
+              <td><span class="pill bad">inactive</span></td>
+              <td><button data-open="m-tedit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Rafi Gomez</td>
+              <td>Acacia Town Center</td>
+              <td>Vocals</td>
+              <td>Fri–Sun · 12PM–8PM</td>
+              <td><span class="pill">active</span></td>
+              <td><button data-open="m-tedit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Jordan Lee</td>
+              <td>Makati</td>
+              <td>Guitar</td>
+              <td>Mon–Sat · 9AM–6PM</td>
+              <td><span class="pill">active</span></td>
+              <td><button data-open="m-tedit">Edit</button></td>
+            </tr>
+          </table>
+        </div>
+        <dialog id="m-tedit">
+          <small>Teacher record</small>
+          <h2>Edit teacher</h2>
+          <label>Name<input value="Alex Cruz" /></label
+          ><label
+            >Assigned branch<select>
+              <option>Acacia Town Center</option>
+              <option>Acacia Town Center</option>
+              <option>BGC</option>
+              <option>Makati</option>
+              <option>Poblacion</option>
+            </select></label
+          ><label
+            >Instrument<select>
+              <option>Guitar</option>
+              <option>Piano</option>
+              <option>Drums</option>
+              <option>Bass</option>
+              <option>Vocals</option>
+            </select></label
+          ><label>Availability<input value="Mon–Sat · 9AM–6PM" /></label
+          ><label
+            >Status<select>
+              <option>Active</option>
+              <option>Inactive</option>
+            </select></label
+          >
+          <div class="acts">
+            <button data-close>Cancel</button
+            ><button class="pri" data-close>Save changes</button>
+          </div>
+        </dialog>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

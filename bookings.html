@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Booking queue · The Music Army</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="side">
+      <div class="logo">THE MUSIC ARMY</div>
+      <nav>
+        <a href="dashboard.html" class="">Dashboard</a>
+        <a href="bookings.html" class="on">Bookings<em class="bdg">3</em></a>
+        <a href="schedule.html" class="">Schedule</a>
+        <a href="teachers.html" class="">Teachers</a>
+        <a href="students.html" class="">Students</a>
+        <a href="branches.html" class="">Branches</a>
+        <a href="content.html" class="">Content</a>
+      </nav>
+      <div class="me">
+        <b>Oshien Maboloc</b><br />Roving admin<br /><a href="login.html"
+          >Logout</a
+        >
+      </div>
+    </aside>
+    <main>
+      <header>
+        <div>
+          <small>Oshien Maboloc · Roving admin</small>
+          <h1>Booking queue</h1>
+          <p>
+            Click a request to see its details, then confirm, decline or
+            reschedule.
+          </p>
+        </div>
+        <div class="bar" style="margin: 0">
+          <select>
+            <option>All branches</option>
+            <option>Acacia Town Center</option>
+            <option>BGC</option>
+            <option>Makati</option>
+            <option>Poblacion</option></select
+          ><button>Public booking form</button>
+        </div>
+      </header>
+      <div id="view">
+        <div class="banner">
+          <div>
+            <b>3 requests are waiting for you</b><br /><small
+              >Click Review to confirm or decline.</small
+            >
+          </div>
+          <button class="pri">Show pending only</button>
+        </div>
+        <div class="bar">
+          <input placeholder="Search name or instrument" /><select>
+            <option>All statuses</option>
+            <option>pending</option>
+            <option>confirmed</option></select
+          ><select>
+            <option>All instruments</option>
+            <option>Guitar</option>
+            <option>Piano</option>
+            <option>Drums</option>
+            <option>Bass</option>
+            <option>Vocals</option>
+          </select>
+        </div>
+        <div class="card">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Branch</th>
+              <th>Instrument</th>
+              <th>Date/Time</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+            <tr>
+              <td>Ana Cruz</td>
+              <td>Makati</td>
+              <td>Piano</td>
+              <td>Not scheduled yet</td>
+              <td><span class="pill warn">pending</span></td>
+              <td><button class="pri" data-open="d-pending">Review</button></td>
+            </tr>
+            <tr>
+              <td>Carl Reyes</td>
+              <td>BGC</td>
+              <td>Guitar</td>
+              <td>Nov 26, 10:00 AM</td>
+              <td><span class="pill">confirmed</span></td>
+              <td><button class="" data-open="d-conf">Manage</button></td>
+            </tr>
+            <tr>
+              <td>Ella Uy</td>
+              <td>Acacia Town Center</td>
+              <td>Vocals</td>
+              <td>Not scheduled yet</td>
+              <td><span class="pill warn">pending</span></td>
+              <td><button class="pri" data-open="d-pending">Review</button></td>
+            </tr>
+            <tr>
+              <td>Miguel Tan</td>
+              <td>Poblacion</td>
+              <td>Drums</td>
+              <td>Not scheduled yet</td>
+              <td><span class="pill warn">pending</span></td>
+              <td><button class="pri" data-open="d-pending">Review</button></td>
+            </tr>
+            <tr>
+              <td>Sofia Lim</td>
+              <td>BGC</td>
+              <td>Bass</td>
+              <td>Nov 29, 3:00 PM</td>
+              <td><span class="pill">confirmed</span></td>
+              <td><button class="" data-open="d-conf">Manage</button></td>
+            </tr>
+          </table>
+        </div>
+
+        <dialog id="d-pending" class="drawer">
+          <button data-close style="float: right">Close</button
+          ><small>Booking request · Pending</small>
+          <h2>Ana Cruz</h2>
+          <small>Submitted from the public booking form on Nov 23, 2026</small>
+          <div class="note">
+            <small>Next step</small><br /><b
+              >Confirm this request and pick the first-lesson date, time and
+              teacher.</b
+            >
+          </div>
+          <div class="dl">
+            <span>Program</span><span>Piano</span><span>Branch</span
+            ><span>Poblacion</span><span>Age range</span><span>13–17</span
+            ><span>Contact</span><span>0917-402-8831</span><span>Email</span
+            ><span>ana.cruz@email.com</span><span>First lesson</span
+            ><span style="color: #b36b00">Not scheduled yet</span
+            ><span>Teacher</span
+            ><span style="color: #b36b00">Not assigned yet</span>
+          </div>
+          <button
+            class="pri"
+            style="width: 100%; padding: 11px"
+            data-open="m-confirm"
+          >
+            Confirm and schedule first lesson</button
+          ><button
+            class="dng"
+            style="width: 100%; padding: 11px; margin-top: 8px"
+            data-open="m-decline"
+          >
+            Decline request
+          </button>
+        </dialog>
+
+        <dialog id="d-conf" class="drawer">
+          <button data-close style="float: right">Close</button
+          ><small>Confirmed booking</small>
+          <h2>Carl Reyes</h2>
+          <small>Guitar · BGC</small>
+          <div class="dl">
+            <span>Lesson</span><span>Thu, Nov 26, 2026 · 10:00 AM</span
+            ><span>Teacher</span><span>Alex Cruz</span>
+          </div>
+          <button
+            class="pri"
+            style="width: 100%; padding: 11px"
+            data-open="m-resched"
+          >
+            Reschedule lesson</button
+          ><button
+            style="width: 100%; padding: 11px; margin-top: 8px"
+            data-open="m-assign"
+          >
+            Assign teacher
+          </button>
+        </dialog>
+
+        <dialog id="m-confirm">
+          <small>Booking request · Pending</small>
+          <h2>Confirm and schedule first lesson</h2>
+          <small
+            >The first lesson is free. Pick the date, time and teacher, then
+            confirm.</small
+          >
+          <div class="dl">
+            <span>Student</span><span>Ana Cruz</span><span>Program</span
+            ><span>Piano</span><span>Branch</span><span>Poblacion</span
+            ><span>Age range</span><span>13–17</span><span>Contact</span
+            ><span>0917-402-8831</span><span>Email</span
+            ><span>ana.cruz@email.com</span>
+          </div>
+          <div class="bar" style="margin: 0">
+            <label style="flex: 1"
+              >Date<input type="date" value="2026-11-25" /></label
+            ><label style="flex: 1"
+              >Time<select>
+                <option>4:00 PM</option>
+                <option>5:00 PM</option>
+              </select></label
+            >
+          </div>
+          <label
+            >Teacher<select>
+              <option>Paolo Reyes · Piano · Poblacion</option>
+            </select></label
+          >
+          <div class="acts">
+            <button data-close>Cancel</button
+            ><button class="pri" data-close>Confirm lesson</button>
+          </div>
+        </dialog>
+
+        <dialog id="m-decline">
+          <small>Booking request · Pending</small>
+          <h2>Decline this request?</h2>
+          <small
+            >Miguel Tan · Drums · Poblacion. The student will not be scheduled.
+            They can submit a new request later.</small
+          >
+          <label
+            >Reason (optional)<select>
+              <option>Choose a reason</option>
+              <option>No teacher available</option>
+              <option>Branch is closed</option>
+              <option>Duplicate request</option>
+            </select></label
+          >
+          <div class="acts">
+            <button data-close>Keep request</button
+            ><button
+              class="pri"
+              style="background: #a32a2a; border-color: #a32a2a"
+              data-close
+            >
+              Decline request
+            </button>
+          </div>
+        </dialog>
+
+        <dialog id="m-resched">
+          <small>Confirmed booking</small>
+          <h2>Reschedule lesson</h2>
+          <small
+            >Carl Reyes · Guitar · BGC. Currently Thu, Nov 26, 2026 at 10:00
+            AM.</small
+          >
+          <div class="bar" style="margin: 0">
+            <label style="flex: 1"
+              >New date<input type="date" value="2026-11-27" /></label
+            ><label style="flex: 1"
+              >New time<select>
+                <option>11:00 AM</option>
+                <option>1:00 PM</option>
+              </select></label
+            >
+          </div>
+          <label
+            >Note to student (optional)<input placeholder="Add a short note"
+          /></label>
+          <div class="acts">
+            <button data-close>Cancel</button
+            ><button class="pri" data-close>Save new time</button>
+          </div>
+        </dialog>
+
+        <dialog id="m-assign">
+          <small>Confirmed booking · No teacher yet</small>
+          <h2>Assign teacher</h2>
+          <small
+            >Ella Uy · Vocals · Acacia · Fri, Nov 27, 2026 at 2:00 PM. Teachers
+            who fit the instrument and branch are listed first.</small
+          >
+          <label
+            style="
+              flex-direction: row;
+              display: flex;
+              gap: 10px;
+              border: 1px solid #213a2f;
+              background: #eef4ef;
+              padding: 10px;
+              border-radius: 5px;
+              color: #1d2a24;
+            "
+            ><input type="radio" name="t" checked style="width: auto" /><span
+              style="flex: 1"
+              >Rafi Gomez<br /><small
+                >Vocals · Acacia · Fri–Sun, 12PM–8PM</small
+              ></span
+            ><span class="pill">Available</span></label
+          >
+          <label
+            style="
+              flex-direction: row;
+              display: flex;
+              gap: 10px;
+              border: 1px solid #d9d9d4;
+              padding: 10px;
+              border-radius: 5px;
+              color: #1d2a24;
+            "
+            ><input type="radio" name="t" style="width: auto" /><span
+              style="flex: 1"
+              >Lara Uy<br /><small>Vocals · BGC · Mon–Thu, 2PM–8PM</small></span
+            ><span class="pill bad">Not available that day</span></label
+          >
+          <div class="acts">
+            <button data-close>Cancel</button
+            ><button class="pri" data-close>Assign teacher</button>
+          </div>
+        </dialog>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
