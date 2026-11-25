@@ -282,6 +282,38 @@ td { padding: 10px 6px; border-top: 1px solid var(--line-soft); }
 .pill.warn { background: var(--warn-pill); color: var(--warn-text); }
 .pill.bad  { background: var(--bad-bg);    color: var(--bad-text); }
 
+/* Program colors distinguish program enrollment, not student status. */
+.program-tag { font-weight: 600; }
+.program-infantry { background: #e8edd8; color: #475526; }
+.program-basic { background: #dce8f8; color: #294d80; }
+.program-ateam { background: #eee1f5; color: #623b7a; }
+.program-special { background: #f9e3d6; color: #8c431d; }
+.program-band { background: #d9eeee; color: #246366; }
+.program-label { display: inline-block; padding: 2px 6px; border-radius: 4px; }
+.program-fill.program-infantry { background: #728744; }
+.program-fill.program-basic { background: #5279b1; }
+.program-fill.program-ateam { background: #8c61a5; }
+.program-fill.program-special { background: #c56b3b; }
+.program-fill.program-band { background: #438d8d; }
+.prog.program-infantry { border-left: 4px solid #728744; }
+.prog.program-basic { border-left: 4px solid #5279b1; }
+.prog.program-ateam { border-left: 4px solid #8c61a5; }
+.prog.program-special { border-left: 4px solid #c56b3b; }
+.prog.program-band { border-left: 4px solid #438d8d; }
+
+.support-note {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border: 1px solid #cbd9ce;
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius);
+  background: #edf3ee;
+}
+.support-note span { color: var(--muted); }
+.support-tag { background: #edf3ee; color: var(--green-text); }
+
 /* ---------- 7. Popups (dialogs, side panel) ---------- */
 dialog {
   width: min(460px, 92vw);
@@ -354,6 +386,8 @@ dialog.drawer {
 .d { background: #fde8d9; color: #a5501b; }   /* Drums  */
 .b { background: #dce8fa; color: #2f5aa8; }   /* Bass   */
 .v { background: #fadde6; color: #a52a58; }   /* Vocals */
+.vi { background: #fdf0c9; color: #7a5a00; }  /* Violin */
+.u { background: #d9f0f0; color: #1d6b6b; }   /* Ukulele */
 
 .sched {
   display: grid;
@@ -382,6 +416,24 @@ button.les {                    /* scheduled lesson */
   font-size: 12px;
   line-height: 1.35;
 }
+.les-location {
+  display: block;
+  margin-top: 5px;
+  padding-top: 4px;
+  border-top: 1px solid #0002;
+  font-size: 10px;
+  line-height: 1.25;
+}
+.les-location.online { font-weight: 700; }
+.lesson-place {
+  display: grid;
+  gap: 3px;
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+.lesson-place span { color: var(--muted); }
 
 /* ---------- 9. Page: Content ---------- */
 .photos {
@@ -447,5 +499,11 @@ button.les {                    /* scheduled lesson */
 }
 @media (max-width: 640px) {
   .g2, .g4 { grid-template-columns: 1fr; }
-  .side    { display: none; }
+  body     { flex-direction: column; }
+  .side    { position: static; width: 100%; height: auto; padding: 10px; }
+  .side nav { display: flex; gap: 4px; overflow-x: auto; }
+  .side nav a { white-space: nowrap; }
+  .logo, .me { display: none; }
+  header   { flex-direction: column; gap: 10px; padding: 16px; }
+  #view    { padding: 16px; }
 }
